@@ -1,0 +1,17 @@
+.cmp-home-filter-container{
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    padding: 1em;
+    color: white;
+}
+
+
+.cmp-container-home_Select{
+    width: 10em;
+    height: 1.5em;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 1px 0.5em;
+}
+
