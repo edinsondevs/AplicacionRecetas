@@ -1,0 +1,22 @@
+.cmp-text-type{
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.cmp-title{
+    font-size: 0.8em
+}
+
+
+.grid>article img.img-delete {
+    max-width: 2em;
+    max-height: 2em;
+    /* border: 2px solid blue; */
+}
+
+.grid>article div.cmp-div-delete{
+    /* border: 2px solid red; */
+    display: flex;
+    justify-content: flex-end;
+    align-items:flex-start;
+}
