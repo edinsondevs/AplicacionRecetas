@@ -8,9 +8,6 @@ const {
 
 
 
-
- 
-
 let sequelize =
   process.env.RAILWAY_ENVIRONMENT === "production"
     ? new Sequelize({
@@ -35,7 +32,8 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, 
+        // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`, 
+        `postgresql://postgres:10KxrK2xUMQO0kquccjo@containers-us-west-41.railway.app:6495/railway`,
         { logging: false, native: false }
       );
  
