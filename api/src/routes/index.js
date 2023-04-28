@@ -18,9 +18,9 @@ const router = Router();
 //************************************            CONSULTA A LA APIDB
 const getApi = async () => {
   const api = await axios.get(
-    // `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_temp}&addRecipeInformation=true&number=100`);
-    `http://localhost:3004/results`);
-  const e = api.data;
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_temp}&addRecipeInformation=true&number=100`);
+    // `http://localhost:3004/results`);
+  const e = api.data.results;
   let results = e.map(e => {
     return {
       id: e.id,
@@ -91,10 +91,10 @@ router.get('/types/diets/db', async (req, res) => {
 // En una primera instancia, cuando no exista ninguno, deberán precargar la base de datos con los tipos de datos indicados por spoonacular acá
 router.get("/types", async (req, res, next) => {
   try {
-    // const typeApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_temp}&addRecipeInformation=true&number=100`);
-    const typeApi = await axios.get(`http://localhost:3004/results`);
+    const typeApi = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_temp}&addRecipeInformation=true&number=100`);
+    // const typeApi = await axios.get(`http://localhost:3004/results`);
     let array = [];
-    let types = typeApi.data.map(e => {
+    let types = typeApi.data.results.map(e => {
       return [
         e.diets.map(el => el),
       ]
@@ -233,7 +233,8 @@ router.get("/recipe/:id", async (req, res, next) => {
     }
     else {
       let apiInfoDetail = {};
-      let response = await axios.get(`http://localhost:3004/results/${id}`);
+      // let response = await axios.get(`http://localhost:3004/results/${id}`);
+      let response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_temp}`);
       let apiIdInfo2 = response.data;
       apiInfoDetail = {
         id: apiIdInfo2.id,
